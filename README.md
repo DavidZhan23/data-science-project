@@ -14,3 +14,9 @@
 6. [License](#license)
 7. [Acknowledgements](#acknowledgements)
 8. [References](#references)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
