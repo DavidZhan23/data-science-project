@@ -1,51 +1,42 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import os
-from sklearn.metrics import multilabel_confusion_matrix
-from sklearn.feature_extraction.text import TfidfVectorizer
+import matplotlib.pyplot as plt
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.multiclass import OneVsRestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import LinearSVC
 from sklearn.pipeline import Pipeline
-from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, f1_score, multilabel_confusion_matrix
 
-def prepare_data(req):
-    X = req['sentence']
-    y = MultiLabelBinarizer().fit_transform(req['tags'])
-    return train_test_split(X, y, test_size=0.2, random_state=42)
+def print_evaluation_scores(y_val, predicted):
+    accuracy = accuracy_score(y_val, predicted)
+    f1_score_macro = f1_score(y_val, predicted, average='macro')
+    f1_score_micro = f1_score(y_val, predicted, average='micro')
+    f1_score_weighted = f1_score(y_val, predicted, average='weighted')
+    print("accuracy:", accuracy)
+    print("f1_score_macro:", f1_score_macro)
+    print("f1_score_micro:", f1_score_micro)
+    print("f1_score_weighted:", f1_score_weighted)
 
-def build_model():
-    model = Pipeline([
-        ('tfidf', TfidfVectorizer(stop_words='english')),
+def build_and_evaluate_model(X_train, y_train, X_test, y_test, vectorizer=CountVectorizer):
+    pipeline = Pipeline([
+        ('vectorizer', vectorizer(min_df=5, max_df=0.9, ngram_range=(1, 2), token_pattern='(\S+)')),
         ('clf', OneVsRestClassifier(MultinomialNB()))
     ])
-    return model
 
-def train_model(X_train, y_train):
-    model = build_model()
-    model.fit(X_train, y_train)
-    return model
+    pipeline.fit(X_train, y_train)
+    predicted = pipeline.predict(X_test)
+    print_evaluation_scores(y_test, predicted)
+    return pipeline, predicted
 
-def evaluate_model(model, X_test, y_test):
-    predicted = model.predict(X_test)
-    score = model.score(X_test, y_test)
-    print(f"Model accuracy: {score:.2f}")
-    
-    # Generate and save confusion matrices
-    save_confusion_matrices(y_test, predicted)
-    
-    return predicted
-
-def save_confusion_matrices(y_true, y_pred):
+def save_confusion_matrices(y_true, y_pred, classes):
     confusion_matrices = multilabel_confusion_matrix(y_true, y_pred)
-    classes =  ['alarm','alert','automat','child','clean','control','cook','door',
-                'electr', 'energi', 'entertain', 'food', 'health' ,'heat' ,'home' ,'kitchen',
-                'light', 'lock', 'music', 'pet', 'safeti', 'save', 'secur','sensor', 'shower',
-                'smart', 'temperatur', 'tv' ,'water', 'window']  # List of class labels
-    
-    # Create a directory to save the confusion matrices
+
     os.makedirs('confusion_matrices', exist_ok=True)
-    
+
     for i, label in enumerate(classes):
         fig, ax = plt.subplots()
         mat = confusion_matrices[i]
@@ -57,14 +48,42 @@ def save_confusion_matrices(y_true, y_pred):
         ax.set_xticks(np.arange(len(mat)))
         ax.set_yticks(np.arange(len(mat)))
         ax.set_xticklabels(['Positive', 'Negative'])
-        ax.set_yticklabels(['True','False'])
-        
+        ax.set_yticklabels(['True', 'False'])
+
         plt.savefig(f'confusion_matrices/{label}_confusion_matrix.png')
         plt.close(fig)
 
-if __name__ == "__main__":
-    from data_processing import load_data
-    data = load_data('requirements.csv')
-    X_train, X_test, y_train, y_test = prepare_data(data)
-    model = train_model(X_train, y_train)
-    predicted = evaluate_model(model, X_test, y_test)
+def build_other_models(X_train, y_train, X_test, y_test):
+    models = [
+        ('SVC', LinearSVC()),
+        ('LogReg', LogisticRegression()),
+        ('KNN', KNeighborsClassifier())
+    ]
+
+    for name, clf in models:
+        pipeline = Pipeline([
+            ('vectorizer', CountVectorizer(min_df=5, max_df=0.9, ngram_range=(1, 2), token_pattern='(\S+)')),
+            ('clf', OneVsRestClassifier(clf, n_jobs=1)),
+        ])
+        pipeline.fit(X_train, y_train)
+        predicted = pipeline.predict(X_test)
+        print(f"Results for {name}:")
+        print_evaluation_scores(y_test, predicted)
+
+def build_tfidf_models(X_train, y_train, X_test, y_test):
+    models = [
+        ('tfidf_NB', MultinomialNB()),
+        ('tfidf_SVC', LinearSVC()),
+        ('tfidf_LogReg', LogisticRegression()),
+        ('tfidf_KNN', KNeighborsClassifier())
+    ]
+
+    for name, clf in models:
+        pipeline = Pipeline([
+            ('tfidf', TfidfVectorizer(min_df=5, max_df=0.9, ngram_range=(1, 2), token_pattern='(\S+)')),
+            ('clf', OneVsRestClassifier(clf, n_jobs=1)),
+        ])
+        pipeline.fit(X_train, y_train)
+        predicted = pipeline.predict(X_test)
+        print(f"Results for {name}:")
+        print_evaluation_scores(y_test, predicted)
