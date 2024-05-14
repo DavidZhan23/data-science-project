@@ -1,3 +1,4 @@
+# %%
 import pandas as pd
 import numpy as np
 import os
@@ -6,12 +7,10 @@ import re
 # Load the dataset
 df = pd.read_csv('../../cleaned_dataset/output0.csv')
 
-
 # Function to convert time strings to minutes
 def convert_to_minutes(time_str):
     # Normalize the string to lower case
     time_str = time_str.strip().lower()
-
     try:
         # Handle various formats
         if re.match(r'^\d+:\d+$', time_str):  # Format like 00:30 or 1:30
@@ -81,12 +80,11 @@ def convert_to_minutes(time_str):
     
     return np.nan
 
+# %%
 # Apply the conversion function to the Efficiency column
 df['Efficiency'] = df['Efficiency'].apply(convert_to_minutes)
 
-# Drop rows with NaN values
-df = df.dropna()
-
+# %%
 # Create the cleaned_dataset folder if it doesn't exist
 os.makedirs('../../cleaned_dataset', exist_ok=True)
 
