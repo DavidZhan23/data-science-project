@@ -1,0 +1,36 @@
+Group 2
+----------------------------------------
+Enjoyment does not influence Usefulness significantly (p-value = 0.52605)
+Enjoyment does not influence Novelty significantly (p-value = 0.60531)
+Boredom does not influence Usefulness significantly (p-value = 0.54103)
+Boredom does not influence Novelty significantly (p-value = 0.31327)
+Confidence does not influence Usefulness significantly (p-value = 0.45919)
+Confidence does not influence Novelty significantly (p-value = 0.76224)
+Anxiety does not influence Usefulness significantly (p-value = 0.76134)
+Anxiety does not influence Novelty significantly (p-value = 0.58708)
+
+----------------------------------------
+
+Group 1
+----------------------------------------
+Enjoyment does not influence Usefulness significantly (p-value = 0.12500)
+Enjoyment does not influence Novelty significantly (p-value = 0.55797)
+Boredom does not influence Usefulness significantly (p-value = 0.45453)
+Boredom does not influence Novelty significantly (p-value = 0.62305)
+Confidence does not influence Usefulness significantly (p-value = 0.29486)
+Confidence does not influence Novelty significantly (p-value = 0.16859)
+Anxiety does not influence Usefulness significantly (p-value = 0.25344)
+Anxiety does not influence Novelty significantly (p-value = 0.47152)
+
+----------------------------------------
+
+Combined Data
+----------------------------------------
+Enjoyment does not influence Usefulness significantly (p-value = 0.33038)
+Enjoyment does not influence Novelty significantly (p-value = 0.50056)
+Boredom does not influence Usefulness significantly (p-value = 0.82751)
+Boredom does not influence Novelty significantly (p-value = 0.18739)
+Confidence does not influence Usefulness significantly (p-value = 0.15025)
+Confidence does not influence Novelty significantly (p-value = 0.43492)
+Anxiety does not influence Usefulness significantly (p-value = 0.80165)
+Anxiety does not influence Novelty significantly (p-value = 0.69646)
