@@ -34,7 +34,7 @@ for group in groups:
     results.append('\n')
 
 # Save the results to a file
-output_file_path = 'hypothesis_test_results_personality_vs_emotion.txt'
+output_file_path = 'results/hypothesis_test_results_personality_vs_emotion.txt'
 with open(output_file_path, 'w') as f:
     for result in results:
         f.write(result + '\n')
