@@ -2,22 +2,24 @@
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
-2. [Installation](#installation)
-3. [Usage](#usage)
+2. [Dataset Overview](#dataset-overview)
+3. [Installation](#installation)
+4. [Usage](#usage)
     - [Data Collection](#data-collection)
     - [Data Cleaning](#data-cleaning)
     - [Data Analysis](#data-analysis)
     - [Modeling](#modeling)
     - [Results](#results)
-4. [Requirements](#requirements)
-5. [Contributing](#contributing)
-6. [License](#license)
-7. [Acknowledgements](#acknowledgements)
-8. [References](#references)
+5. [Requirements](#requirements)
+6. [Contributing](#contributing)
+7. [License](#license)
+8. [Acknowledgements](#acknowledgements)
+9. [References](#references)
 
 
 ## Project Overview
 
+## Dataset Overview
 This project utilizes the dataset titled "Crowdsourced Smarthome Requirements with Creativity Ratings." The dataset was analyzed in the paper "Crowdsourcing Requirements: Does Teamwork Enhance Crowd Creativity?"
 
 The dataset consists of the following CSV files:
