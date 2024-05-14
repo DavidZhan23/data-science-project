@@ -19,7 +19,7 @@ creativity_df = creativity_df.groupby('user_id').aggregate(agg_functions).reset_
 # Load the main dataset
 df = pd.read_csv('../../cleaned_dataset/personblity_emotion_efficiency.csv')
 
-# Add novelty and usefulness to the main dataframe
+# Add novelty and usefulness to the main dataframe　
 df['Novelty'] = np.nan
 df['Usefulness'] = np.nan
 for user_id in creativity_df['user_id']:
