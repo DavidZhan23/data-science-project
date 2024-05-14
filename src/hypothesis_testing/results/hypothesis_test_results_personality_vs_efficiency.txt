@@ -1,0 +1,12 @@
+Group 2
+----------------------------------------
+
+Personality does not have a significant relation to efficiency in group 2 (p-value = 0.40777)
+
+
+Group 1
+----------------------------------------
+
+Personality does not have a significant relation to efficiency in group 1 (p-value = 0.09483)
+
+
