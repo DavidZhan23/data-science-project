@@ -32,11 +32,33 @@ The dataset consists of the following CSV files:
 8. **all_requirements**: Requirements elicited by the crowd workers in a user story format.
 9. **creativity-ratings.csv**: Authors’ average ratings for each requirement based on the metrics ‘detailedness,’ ‘novelty,’ and ‘usefulness.’
 
-## Data Collection 
+## Installation
 
+To get started with this project, follow the steps below:
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/DavidZhan23/data-science-project.git
+   cd data-science-project
+   ```
+2. **Create and activate a virtual environment (optional but recommended)**:
+     ```bash
+   python3 -m venv env
+    source env/bin/activate   # On Windows use `env\Scripts\activate`
+     ```
+3. **Install the required dependencies** (required dependencies can be found in requirements.txt):
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. **download the dataset**
 The dataset can be accessed and downloaded from the following website: [Zenodo](https://zenodo.org/records/3550721).
 
- 
+ 5. Run the project:
+You may use ...... to directly find out the final results of the NLP and Hypothesis testing. The commend to adjust this project are also given below.
+
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
