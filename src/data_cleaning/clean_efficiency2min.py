@@ -6,6 +6,8 @@ import re
 # Load the dataset
 df = pd.read_csv('../../cleaned_dataset/output0.csv')
 
+
+# Function to convert time strings to minutes
 def convert_to_minutes(time_str):
     # Normalize the string to lower case
     time_str = time_str.strip().lower()
@@ -23,8 +25,8 @@ def convert_to_minutes(time_str):
         elif re.match(r'^\d+\s?hour', time_str):  # Format like 1 hour
             return int(re.findall(r'\d+', time_str)[0]) * 60
         elif re.match(r'^\d+:\d{2}', time_str):  # Format like 1:00, 00:60, etc.
-            hours, minutes = map(int, time_str.split(':'))
-            return hours * 60 + minutes
+            parts = re.findall(r'\d+', time_str)
+            return int(parts[0]) * 60 + int(parts[1])
         elif re.match(r'^\d+\.?\d*$', time_str):  # Format like 30, 25, etc.
             return int(time_str.split('.')[0])
         elif 'about' in time_str or 'approximately' in time_str:  # Handle approximate times
@@ -36,6 +38,42 @@ def convert_to_minutes(time_str):
         elif re.match(r'\d+\s*:\s*\d+', time_str):  # Format like 00:30, 1:00, 1:30, etc.
             parts = re.findall(r'\d+', time_str)
             return int(parts[0]) * 60 + int(parts[1])
+        elif re.match(r'\d+\s*.\s*\d+', time_str):  # Format like 00.30, 1.00, 1.30, etc.
+            parts = re.findall(r'\d+', time_str)
+            return int(parts[0]) * 60 + int(parts[1])
+        elif re.match(r'^\d+\s*:\s*\d+:\d+$', time_str):  # Format like 6:30:00
+            parts = re.findall(r'\d+', time_str)
+            return int(parts[0]) * 60 + int(parts[1]) + int(parts[2]) // 60
+        elif re.match(r'\d+\s*-\s*\d+\s*minutes', time_str):  # Format like 45 - 60 minutes
+            parts = re.findall(r'\d+', time_str)
+            return (int(parts[0]) + int(parts[1])) // 2
+        elif re.match(r'\d+\s*to\s*\d+\s*minutes', time_str):  # Format like 20 to 30 minutes
+            parts = re.findall(r'\d+', time_str)
+            return (int(parts[0]) + int(parts[1])) // 2
+        elif re.match(r'\d+[:.]\d+', time_str):  # Format like 00.30 mins or 00:30
+            parts = re.findall(r'\d+', time_str)
+            return int(parts[0]) * 60 + int(parts[1])
+        elif re.match(r'thirty minutes', time_str):  # Format like thirty minutes
+            return 30
+        elif re.match(r'twenty five minutes', time_str):  # Format like twenty five minutes
+            return 25
+        elif re.match(r'less than an hour', time_str):  # Format like less than an hour
+            return 60
+        elif re.match(r'over 10 hours', time_str):  # Format like can not view timer (over 10 hours)
+            return 10 * 60
+        elif re.match(r'about an hour', time_str):  # Format like about an hour
+            return 60
+        elif re.match(r'^:\d{2}', time_str):  # Format like :30, :40
+            parts = re.findall(r'\d+', time_str)
+            return int(parts[0])
+        elif re.match(r'i didn\'t keep track of time, around \d+ minutes i think', time_str):  # Format like i didn't keep track of time, around 25 minutes i think
+            parts = re.findall(r'\d+', time_str)
+            return int(parts[0])
+        elif re.match(r'can not view timer \(over \d+ hours\)', time_str):  # Format like can not view timer (over 10 hours)
+            parts = re.findall(r'\d+', time_str)
+            return int(parts[0]) * 60
+        elif re.match(r'00.25', time_str):  # Format like about an hour
+            return 60
         else:
             print(f"Unrecognized format: {time_str}")
     except Exception as e:
