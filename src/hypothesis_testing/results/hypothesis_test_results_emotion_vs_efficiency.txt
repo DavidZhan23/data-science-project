@@ -1,0 +1,18 @@
+Group 2
+----------------------------------------
+
+Enjoyment does not influence efficiency significantly (p-value = 0.21978)
+Boredom does not influence efficiency significantly (p-value = 0.32066)
+Confidence does not influence efficiency significantly (p-value = 0.26060)
+Anxiety does not influence efficiency significantly (p-value = 0.71238)
+
+
+Group 1
+----------------------------------------
+
+Enjoyment does not influence efficiency significantly (p-value = 0.37699)
+Boredom influences efficiency significantly (p-value = 0.02154)
+Confidence does not influence efficiency significantly (p-value = 0.32085)
+Anxiety does not influence efficiency significantly (p-value = 0.68336)
+
+
