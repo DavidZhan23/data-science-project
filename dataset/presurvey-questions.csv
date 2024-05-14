@@ -1,0 +1,10 @@
+id,description,question_type,answer_choices,required
+1,"What is your gender?",multiple_choice_radio,Male|Female|Other,1
+2,"Which of the following categories includes your age?",multiple_choice_radio,"18 to 24|25 to 34|35 to 45|45 to 54|55 or older",1
+3,"What is the highest level of school you have completed or the highest degree you have received?",multiple_choice,"Less than high school degree|High school degree or equivalent (e.g., GED)|Some college but no degree|Bachelor degree|Graduate degree",1
+4,"If you went to college, what was your major?",text,"For example, computer science, mechanical engineering, psychology, music, law, etc.",0
+5,"Have you worked for a technology company?",multiple_choice,"No|Yes; for less than a year|Yes; for one to five years|Yes; for more than five years",1
+6,"How do you rate your familiarity of concepts related to Computer Science, Information Techonology, and Software Engineering?",multiple_choice_radio,"Very low|Low|Medium|High|Very high",1
+7,"How do you rate your familiarity of concepts related to Smart Homes, Smart Cities, and Internet of Things?",multiple_choice_radio,"Very low|Low|Medium|High|Very high",1
+8,"Do you use any Smart Home technologies at your home?",multiple_choice_radio,"Yes|No|Not sure",1
+9,"Please use the text box if you need to clarify any of your answers above",text,"Optional clarifications",0
