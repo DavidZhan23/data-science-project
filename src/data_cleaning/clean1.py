@@ -46,5 +46,5 @@ df = df.dropna()
 os.makedirs('../../cleaned_dataset', exist_ok=True)
 
 # Save the dataframe to csv in the cleaned_dataset folder
-df.to_csv('../../cleaned_dataset/out32.csv', index=False)
+df.to_csv('../../cleaned_dataset/output0.csv', index=False)
 # %%
