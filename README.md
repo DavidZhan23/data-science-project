@@ -1,6 +1,6 @@
 # Data Science Project - MSc Statistics Coursework (2023-2024)
 
-## Table of Contents
+# Table of Contents
 1. [Project Overview](#project-overview)
 2. [Dataset Overview](#dataset-overview)
 3. [Installation](#installation)
@@ -17,7 +17,7 @@
 9. [References](#references)
 
 
-## Project Overview
+# Project Overview
 This project utilizes the dataset titled "Crowdsourced Smarthome Requirements with Creativity Ratings," which was analyzed in the paper ["Crowdsourcing Requirements: Does Teamwork Enhance Crowd Creativity?"](https://zenodo.org/record/3550721).
 
 The dataset can be accessed from two sources:
@@ -25,8 +25,7 @@ The dataset can be accessed from two sources:
 - [Zenodo](https://zenodo.org/records/3550721): Provides the dataset with some processed data.
 - [Crowdre](https://crowdre.github.io/murukannaiah-smarthome-requirements-dataset/): Offers a more original version, including the questions used.
 
-Following approach has been implemented 
-
+## Following approach has been implemented
 ### Hypothesis Testing
 
 I conducted hypothesis testing to analyze whether teamwork enhances crowd creativity. Additionally, I investigated the influence of emotion on:
@@ -44,7 +43,7 @@ I applied NLP techniques to:
 These approaches provide deeper insights and enhance the dataset's usability for future research and applications.
 
 
-## Dataset Overview
+# Dataset Overview
 The dataset consists of the following CSV files:
 
 1. **presurvey-questions**: A list of presurvey questions used to collect demographic information.
@@ -57,7 +56,7 @@ The dataset consists of the following CSV files:
 8. **all_requirements**: Requirements elicited by the crowd workers in a user story format.
 9. **creativity-ratings.csv**: Authors’ average ratings for each requirement based on the metrics ‘detailedness,’ ‘novelty,’ and ‘usefulness.’
 
-## Installation
+# Installation
 
 To get started with this project, follow the steps below:
 
@@ -84,7 +83,7 @@ You may use ...... to directly find out the final results of the NLP and Hypothe
 
 
 
-## License
+# License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
