@@ -97,9 +97,17 @@ python explore.py
 ```
 
 ## Modeling
+NLP models has been constructed to predict the tags and application domains for each requirement. Below is an example of predict application domains for requirement :
+First go to `data-science-project/src
+/NLP_application_domain/` and then run 
+
+
+```bash
+python main.py
+```
 
 ## Results
-
+Results of models are mostly given in their repository
 
 
 # License
