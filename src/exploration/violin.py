@@ -29,13 +29,19 @@ data['Efficiency'] = data['Efficiency'].apply(convert_time_to_minutes)
 # Define the emotions and their corresponding columns
 emotions = ["Enjoyment", "Boredom", "Confidence", "Anxiety"]
 
+# Create a 2x2 grid for the plots
+fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+
+# Flatten the axes array for easy iteration
+axes = axes.flatten()
+
 # Plotting each emotion as a violin plot for different personality types
-for emotion in emotions:
-    plt.figure(figsize=(10, 6))
-    sns.violinplot(x='Personality', y=emotion, data=data)
-    plt.title(f'Distribution of {emotion} by Personality Type')
-    plt.xlabel('Personality Type')
-    plt.ylabel(emotion)
-    plt.tight_layout()
-    plt.savefig(f'../../exploratory_plots/{emotion.lower()}_by_personality.png')
-    plt.show()
+for i, emotion in enumerate(emotions):
+    sns.violinplot(x='Personality', y=emotion, data=data, ax=axes[i])
+    axes[i].set_title(f'Distribution of {emotion} by Personality Type')
+    axes[i].set_xlabel('Personality Type')
+    axes[i].set_ylabel(emotion)
+
+plt.tight_layout()
+plt.savefig('../../exploratory_plots/emotions_by_personality.png')
+plt.show()
