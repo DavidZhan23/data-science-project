@@ -13,9 +13,9 @@ def load_and_preprocess_data(file_path):
     target_usefulness = 'usefulness'
 
     X_train, X_test, y_train_novelty, y_test_novelty = train_test_split(
-        data[feature_columns], data[target_novelty], test_size=0.3, random_state=42)
+        data[feature_columns], data[target_novelty], test_size=0.4, random_state=42)
     _, _, y_train_usefulness, y_test_usefulness = train_test_split(
-        data[feature_columns], data[target_usefulness], test_size=0.3, random_state=42)
+        data[feature_columns], data[target_usefulness], test_size=0.4, random_state=42)
 
     preprocessor = ColumnTransformer(
         transformers=[
