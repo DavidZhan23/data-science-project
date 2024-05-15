@@ -37,7 +37,7 @@ I conducted hypothesis testing to analyze whether teamwork enhances crowd creati
 
 I applied NLP techniques to:
 
-1. **Predict Tags**: Analyzed the tags in the dataset to predict tags in the `requirements.csv` file.
+1. **Predict Tags**: Analyzed the tags in the dataset to predict tags in the `all_requirements.csv` file. (data from requirements.csv is used for training(more original version))
 2. **Predict Application Domain**: Analyzed and predicted the application domain to enrich the dataset's information.
 
 These approaches provide deeper insights and enhance the dataset's usability for future research and applications.
