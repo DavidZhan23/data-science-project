@@ -53,6 +53,12 @@ def save_confusion_matrices(y_true, y_pred, classes):
         plt.savefig(f'confusion_matrices/{label}_confusion_matrix.png')
         plt.close(fig)
 
+
+
+# below are alternative models can be used. 
+# Further more, it is flaxible for you to choose any model you would like to, the reviewer can construct any model in your own interest 
+# to see its performance 
+
 def build_other_models(X_train, y_train, X_test, y_test):
     models = [
         ('SVC', LinearSVC()),
@@ -67,8 +73,8 @@ def build_other_models(X_train, y_train, X_test, y_test):
         ])
         pipeline.fit(X_train, y_train)
         predicted = pipeline.predict(X_test)
-        print(f"Results for {name}:")
-        print_evaluation_scores(y_test, predicted)
+        # print(f"Results for {name}:")
+        # print_evaluation_scores(y_test, predicted)
 
 def build_tfidf_models(X_train, y_train, X_test, y_test):
     models = [
@@ -85,5 +91,5 @@ def build_tfidf_models(X_train, y_train, X_test, y_test):
         ])
         pipeline.fit(X_train, y_train)
         predicted = pipeline.predict(X_test)
-        print(f"Results for {name}:")
-        print_evaluation_scores(y_test, predicted)
+        # print(f"Results for {name}:")
+        # print_evaluation_scores(y_test, predicted)
