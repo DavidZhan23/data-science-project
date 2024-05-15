@@ -25,6 +25,8 @@ The dataset can be accessed from two sources:
 - [Zenodo](https://zenodo.org/records/3550721): Provides the dataset with some processed data.
 - [Crowdre](https://crowdre.github.io/murukannaiah-smarthome-requirements-dataset/): Offers a more original version, including the questions used.
 
+In this project, I work more on the [Zenodo](https://zenodo.org/records/3550721) dataset tp process the analysis. The [Crowdre](https://crowdre.github.io/murukannaiah-smarthome-requirements-dataset/) is only used for training NLP model (this more original version provides Smarthome Requirements with tags and application domains)   
+
 ## Following approach has been implemented
 ### Hypothesis Testing
 
