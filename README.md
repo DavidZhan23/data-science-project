@@ -5,7 +5,6 @@
 2. [Dataset Overview](#dataset-overview)
 3. [Installation](#installation)
 4. [Usage](#usage)
-    - [Data Collection](#data-collection)
     - [Data Cleaning](#data-cleaning)
     - [Data Analysis](#data-analysis)
     - [Modeling](#modeling)
@@ -80,8 +79,16 @@ To get started with this project, follow the steps below:
 4. **download the dataset**
 The dataset can be accessed and downloaded from the following website: [Zenodo](https://zenodo.org/records/3550721).
 
- 5. Run the project:
-You may use ...... to directly find out the final results of the NLP and Hypothesis testing. The commend to adjust this project are also given below.
+# Usage
+## Data Cleaning
+
+To clean the dataset, run the corresponding Python script located in `.data-science-project/src/data_cleaning`. Detailed usage instructions are provided in the comments within each script. For example, to clean the dataset using the `clean_EP_eff.py` script, use the following command:
+
+```bash
+python clean_EP_eff.py
+```
+This command extracts the following columns: `user_id', `Efficiency`, `Enjoyment`, `Boredom`, `Confidence `, `Anxiety`, 'Personality`, and `group_type` from `users.csv` and 'postsurvey-responses.csv`. It then constructs a new CSV file with the cleaned data. The generated CSV file will be located in ` . data-science-project/cleaned_dataset/`.
+
 
 
 
