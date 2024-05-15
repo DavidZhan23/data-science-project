@@ -87,7 +87,8 @@ To clean the dataset, run the corresponding Python script located in `.data-scie
 ```bash
 python clean_EP_eff.py
 ```
-This command extracts the following columns: `user_id`, `Efficiency`, `Enjoyment`, `Boredom`, `Confidence `, `Anxiety`, 'Personality`, and `group_type` from `users.csv` and `postsurvey-responses.csv`. It then constructs a new CSV file with the cleaned data. The generated CSV file will be located in `data-science-project/cleaned_dataset/`.
+
+This command extracts the following columns: `user_id`, `Efficiency`, `Enjoyment`, `Boredom`, `Confidence `, `Anxiety`, `Personality`, and `group_type` from `users.csv` and `postsurvey-responses.csv`. It then constructs a new CSV file with the cleaned data. The generated CSV file will be located in `data-science-project/cleaned_dataset/`.
 
 
 
