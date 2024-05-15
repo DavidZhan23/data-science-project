@@ -109,7 +109,7 @@ python main.py
 ```
 
 ## Results
-Results of models are mostly given in their repository
+Results of models are mostly given in their repository. You may also refer to `data_science_report.pdf` to check the result.
 
 
 # License
