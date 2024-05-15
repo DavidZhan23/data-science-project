@@ -116,6 +116,14 @@ python main.py
 
 You should directly adjust the `tune.py` if you want to train a better Random Forest Classifier
 
+### ANN
+ANN has been used to predict the creativity based on the tags and application domains. You can run this section by:
+First go to `data-science-project/src/Model_ANN`, usae the following command
+
+```bash
+python main.py
+```
+You should directly adjust the `neural_network.py` if you want to train a better Random Forest Classifier
 
 ## Results
 Results of models are mostly given in their repository. You may also refer to `data_science_report.pdf` to check the result.
