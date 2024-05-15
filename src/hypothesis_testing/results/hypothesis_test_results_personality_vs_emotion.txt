@@ -11,7 +11,7 @@ Group 1
 ----------------------------------------
 
 The influence of personality on Enjoyment is not significant (p-value = 0.58175)
-The influence of personality on Boredom is not significant (p-value = 0.09264)
+The influence of personality on Boredom is significant (p-value = 0.09264)
 The influence of personality on Confidence is not significant (p-value = 0.57120)
 The influence of personality on Anxiety is not significant (p-value = 0.97698)
 

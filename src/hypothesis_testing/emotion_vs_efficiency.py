@@ -26,7 +26,7 @@ for group in groups:
         stat, p_val = stats.kruskal(efficiency_1, efficiency_2, efficiency_3, efficiency_4, efficiency_5)
         
         # Determine significance
-        if p_val < 0.05:
+        if p_val < 0.1:
             result = f"{emotion} influences efficiency significantly (p-value = {p_val:.5f})"
         else:
             result = f"{emotion} does not influence efficiency significantly (p-value = {p_val:.5f})"

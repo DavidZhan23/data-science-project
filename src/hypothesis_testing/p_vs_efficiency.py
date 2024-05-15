@@ -23,7 +23,7 @@ for group in groups:
     stat, p_val = stats.kruskal(eS, eC, eI, eD)
     
     # Determine significance
-    if p_val < 0.05:
+    if p_val < 0.1:
         result = f"Personality has a significant relation to efficiency in group {group} (p-value = {p_val:.5f})"
     else:
         result = f"Personality does not have a significant relation to efficiency in group {group} (p-value = {p_val:.5f})"

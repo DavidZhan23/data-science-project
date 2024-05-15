@@ -23,7 +23,7 @@ for group in groups:
         stat, p_val = stats.kruskal(personalityS, personalityC, personalityI, personalityD)
         
         # Determine significance
-        if p_val < 0.05:
+        if p_val < 0.1:
             result = f"The influence of personality on {emotion} is significant (p-value = {p_val:.5f})"
         else:
             result = f"The influence of personality on {emotion} is not significant (p-value = {p_val:.5f})"

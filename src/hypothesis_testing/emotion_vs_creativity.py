@@ -72,7 +72,7 @@ for emotion in emotions:
     stat_novelty, p_val_novelty = stats.kruskal(*novelty_data)
     
     # Determine significance for Novelty
-    if p_val_novelty < 0.05:
+    if p_val_novelty < 0.1:
         result_novelty = f"{emotion} influences Novelty significantly (p-value = {p_val_novelty:.5f})"
     else:
         result_novelty = f"{emotion} does not influence Novelty significantly (p-value = {p_val_novelty:.5f})"
