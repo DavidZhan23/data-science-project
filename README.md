@@ -18,7 +18,7 @@
 
 
 # Project Overview
-This project utilizes the dataset titled "Crowdsourced Smarthome Requirements with Creativity Ratings," which was analyzed in the paper ["Crowdsourcing Requirements: Does Teamwork Enhance Crowd Creativity?"](https://zenodo.org/record/3550721).
+This project utilizes the dataset titled "Crowdsourced Smarthome Requirements with Creativity Ratings," which was analyzed in the paper ["Crowdsourcing Requirements: Does Teamwork Enhance Crowd Creativity?"](https://dl.acm.org/doi/pdf/10.1145/3501247.3531555).
 
 The dataset can be accessed from two sources:
 
