@@ -1,36 +1,42 @@
-# This is to convert the time in the requirements.csv to rate. 
-# We have used this code to gind out the rate and them plotted a plot for the rate
+# This script converts the time information in requirements.csv to a rate metric.
+# We used this code to determine the rate and subsequently plotted a graph for it.
 # %%
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-# set figure text size to 25
+
+# Set the figure text size to 40
 plt.rcParams.update({'font.size': 40})
 
-reqs_df = pd.read_csv('../../crowdre_question/requirements.csv')[['id', 'created_at']]
-reqs_df['created_at'] = pd.to_datetime(reqs_df['created_at'])
+# Load the data from CSV files
+requirements_df = pd.read_csv('../../crowdre_question/requirements.csv')[['id', 'created_at']]
+requirements_df['created_at'] = pd.to_datetime(requirements_df['created_at'])
+
 ratings_df = pd.read_csv('../../crowdre_question/requirements_ratings.csv')[['requirement_id', 'created_at']]
 ratings_df['created_at'] = pd.to_datetime(ratings_df['created_at'])
-# rename column to rated at
-ratings_df.rename(columns={'created_at': 'rated_at'}, inplace=True)
-# merge reqs_df and ratings_df
-df = pd.merge(reqs_df, ratings_df, left_on='id', right_on='requirement_id')
-# drop requirement_id column
-df.drop(columns=['requirement_id'], inplace=True)
-# get time difference between created_at and rated_at
-df['time_to_rate'] = df['rated_at'] - df['created_at']
-# convert time_to_rate to days
-df['time_to_rate'] = df['time_to_rate'].dt.days
 
-# plot histogram of time_to_rate
-plt.figure(figsize=(20, 12))
-plt.hist(df['time_to_rate'], bins=50)
-plt.xlabel('Time to rate (days)')
-plt.ylabel('Number of requirements')
-# save plot
-plt.savefig('../../exploratory_plots/rate.png')
-# print mean time_to_rate
-print(f'Mean time to rate: {np.mean(df["time_to_rate"]):.0f} days')
-# print min time_to_rate
-print(f'Min time to rate: {np.min(df["time_to_rate"])} days')
+# Rename 'created_at' column to 'rated_at' in the ratings dataframe
+ratings_df.rename(columns={'created_at': 'rated_at'}, inplace=True)
+
+# Merge the requirements and ratings dataframes on the relevant keys
+merged_df = pd.merge(requirements_df, ratings_df, left_on='id', right_on='requirement_id')
+
+# Remove the 'requirement_id' column as it is no longer needed
+merged_df.drop(columns=['requirement_id'], inplace=True)
+
+# Calculate the time difference between creation and rating dates
+merged_df['rating_time'] = merged_df['rated_at'] - merged_df['created_at']
 # %%
+
+# Convert the time difference to days
+merged_df['rating_time'] = merged_df['rating_time'].dt.days
+
+# Plot a histogram of the time taken to rate
+plt.figure(figsize=(20, 12))
+plt.hist(merged_df['rating_time'], bins=50)
+plt.xlabel('Time to Rate (days)')
+plt.ylabel('Number of Requirements')
+
+# Save the plot as a PNG file
+plt.savefig('../../exploratory_plots/rate.png')
+
