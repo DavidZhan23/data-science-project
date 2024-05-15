@@ -20,7 +20,7 @@ def plot_confusion_matrix(y_true, y_pred, labels, title='Confusion Matrix', file
 
 if __name__ == "__main__":
     file_path = '../../cleaned_dataset/data4training.csv'
-    output_dir = 'correlation_matrix'
+    output_dir = 'confusion_matrix'
     
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
