@@ -18,12 +18,30 @@
 
 
 ## Project Overview
-This project utilizes the dataset titled "Crowdsourced Smarthome Requirements with Creativity Ratings." The dataset was analyzed in the paper "Crowdsourcing Requirements: Does Teamwork Enhance Crowd Creativity?"
-This dataset can be found in two website with different information contained, [Zenodo](https://zenodo.org/records/3550721) gives the dataset with some operated data. And [this site](https://crowdre.github.io/murukannaiah-smarthome-requirements-dataset/) provides a more original version with questions given.
+This project utilizes the dataset titled "Crowdsourced Smarthome Requirements with Creativity Ratings," which was analyzed in the paper ["Crowdsourcing Requirements: Does Teamwork Enhance Crowd Creativity?"](https://zenodo.org/record/3550721).
 
-I have further investigated on the dataset. As this dataset 
+The dataset can be accessed from two sources:
 
+- [Zenodo](https://zenodo.org/records/3550721): Provides the dataset with some processed data.
+- [Crowdre](https://crowdre.github.io/murukannaiah-smarthome-requirements-dataset/): Offers a more original version, including the questions used.
 
+Following approach has been implemented 
+
+### Hypothesis Testing
+
+I conducted hypothesis testing to analyze whether teamwork enhances crowd creativity. Additionally, I investigated the influence of emotion on:
+
+- Creativity (weighted average of creativity and usefulness)
+- Efficiency
+
+### Natural Language Processing (NLP)
+
+I applied NLP techniques to:
+
+1. **Predict Tags**: Analyzed the tags in the dataset to predict tags in the `requirements.csv` file.
+2. **Predict Application Domain**: Analyzed and predicted the application domain to enrich the dataset's information.
+
+These approaches provide deeper insights and enhance the dataset's usability for future research and applications.
 
 
 ## Dataset Overview
