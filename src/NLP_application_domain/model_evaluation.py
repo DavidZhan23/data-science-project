@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
+import os
 
 def print_evaluation_scores(y_val, predicted):
     accuracy = accuracy_score(y_val, predicted)
@@ -12,11 +13,11 @@ def print_evaluation_scores(y_val, predicted):
     print("f1_score_micro:", f1_score_micro)
     print("f1_score_weighted:", f1_score_weighted)
 
-def plot_confusion_matrix(y_true, y_pred, classes):
+def plot_confusion_matrix(y_true, y_pred, classes, model_name, output_dir='confusion_matrix_application_domain'):
     conf_mat = confusion_matrix(y_true, y_pred)
     fig, ax = plt.subplots(figsize=(8, 8))
     ax.imshow(conf_mat, cmap='Blues')
-    ax.set_title('Confusion matrix')
+    ax.set_title(f'Confusion matrix for {model_name}')
     ax.set_xticks(np.arange(len(classes)))
     ax.set_yticks(np.arange(len(classes)))
     ax.set_xticklabels(classes)
@@ -24,4 +25,9 @@ def plot_confusion_matrix(y_true, y_pred, classes):
     for i in range(len(classes)):
         for j in range(len(classes)):
             ax.text(j, i, conf_mat[i, j], ha='center', va='center', color='black')
-    plt.show()
+    
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    
+    fig.savefig(os.path.join(output_dir, f'{model_name}_confusion_matrix.png'))
+    plt.close(fig)

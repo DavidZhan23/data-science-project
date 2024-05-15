@@ -10,8 +10,10 @@ from model_training import train_test_split_data, create_pipeline, train_model
 from model_evaluation import print_evaluation_scores, plot_confusion_matrix
 from predict_save import predict_new_data, save_predictions
 
-# load data
+# Load data
 req = load_data('../../crowdre_question/requirements.csv')
+
+# preprocess
 req = preprocess_application_domain(req, keep_list=['health', 'energy', 'entertainment', 'safety'])
 
 # Split data
@@ -24,13 +26,19 @@ X_train = clean_data(X_train)
 X_test = clean_data(X_test)
 
 # Train and evaluate models
-classifiers = [MultinomialNB(), LinearSVC(), LogisticRegression()]
-for clf in classifiers:
+classifiers = [
+    (MultinomialNB(), "MultinomialNB"),
+    (LinearSVC(), "LinearSVC"),
+    (LogisticRegression(), "LogisticRegression")
+]
+
+for clf, clf_name in classifiers:
     pipeline = create_pipeline(clf)
     pipeline = train_model(pipeline, X_train, y_train)
     predictions = pipeline.predict(X_test)
+    print(f"Evaluation for {clf_name}:")
     print_evaluation_scores(y_test, predictions)
-    plot_confusion_matrix(y_test, predictions, classes=['health', 'safety', 'entertainment', 'energy'])
+    plot_confusion_matrix(y_test, predictions, classes=['health', 'safety', 'entertainment', 'energy'], model_name=clf_name)
 
 # Predict new data
 scenarios = pd.read_csv('../../cleaned_dataset/senario.csv')
