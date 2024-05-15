@@ -128,6 +128,10 @@ You should directly adjust the `neural_network.py` if you want to train a better
 ## Results
 Results of models are mostly given in their repository. You may also refer to `data_science_report.pdf` to check the result.
 
+## Acknowledgements
+
+I, [02423555], certify that this assessed coursework is my own work, unless otherwise acknowledged, and includes no plagiarism. I have not discussed my coursework with anyone else except when seeking clarification with the module lecturer via email or on MS Teams. I have not shared any code underlying my coursework with anyone else prior to submission.
+
 
 # License
 
