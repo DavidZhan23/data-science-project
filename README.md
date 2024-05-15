@@ -9,11 +9,10 @@
     - [Data Analysis](#data-analysis)
     - [Modeling](#modeling)
     - [Results](#results)
-5. [Requirements](#requirements)
-6. [Contributing](#contributing)
-7. [License](#license)
-8. [Acknowledgements](#acknowledgements)
-9. [References](#references)
+5. [Contributing](#contributing)
+6. [License](#license)
+7. [Acknowledgements](#acknowledgements)
+8. [References](#references)
 
 
 # Project Overview
