@@ -20,8 +20,8 @@ This project utilizes the dataset titled "Crowdsourced Smarthome Requirements wi
 
 The dataset can be accessed from two sources:
 
-- [Zenodo](https://zenodo.org/records/3550721): Provides the dataset with some processed data.
-- [Crowdre](https://crowdre.github.io/murukannaiah-smarthome-requirements-dataset/): Offers a more original version, including the questions used.
+- [Zenodo](https://zenodo.org/records/3550721): Provides the dataset with some processed data, requirements are recorded for teamwork.
+- [Crowdre](https://crowdre.github.io/murukannaiah-smarthome-requirements-dataset/): Offers a more original version, including the questions used. Requirements ar recorded for individual worker only
 
 In this project, I work more on the [Zenodo](https://zenodo.org/records/3550721) dataset tp process the analysis. The [Crowdre](https://crowdre.github.io/murukannaiah-smarthome-requirements-dataset/) is only used for training NLP model (this more original version provides Smarthome Requirements with tags and application domains)   
 
