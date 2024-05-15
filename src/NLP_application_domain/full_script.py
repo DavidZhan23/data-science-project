@@ -103,7 +103,6 @@ def text_prepare(text):
             
             
     text = ' '.join(join_list)
-    #text = ' '.join([w for w in text.split() if w not in STOPWORDS])
     return text
 
 # In[10]:
