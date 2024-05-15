@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import confusion_matrix
 from tensorflow.keras.models import load_model
 from data_preprocessing import load_and_preprocess_data
 
@@ -22,8 +22,8 @@ if __name__ == "__main__":
     X_train, X_test, y_train_novelty, y_test_novelty, y_train_usefulness, y_test_usefulness = load_and_preprocess_data(file_path)
 
     # Load trained models
-    novelty_model = load_model("novelty_nn_model.h5")
-    usefulness_model = load_model("usefulness_nn_model.h5")
+    novelty_model = load_model("trained_model/novelty_nn_model.h5")
+    usefulness_model = load_model("trained_model/usefulness_nn_model.h5")
 
     # Make predictions
     y_pred_novelty = np.argmax(novelty_model.predict(X_test), axis=1)
