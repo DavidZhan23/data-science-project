@@ -91,6 +91,10 @@ python clean_EP_eff.py
 This command extracts the following columns: `user_id`, `Efficiency`, `Enjoyment`, `Boredom`, `Confidence `, `Anxiety`, `Personality`, and `group_type` from `users.csv` and `postsurvey-responses.csv`. It then constructs a new CSV file with the cleaned data. The generated CSV file will be located in `data-science-project/cleaned_dataset/`.
 
 ## Data Analysis
+Some data exploration has been done and shown in path `data-science-project/exploratory_plots/`. You can go to 'data-science-project/src/exploration' to review the code to generate them. For example, to find 20 frequentist tags, youmay use `explore.py` script, use the following command
+```bash
+python explore.py
+```
 
 ## Modeling
 
