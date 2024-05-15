@@ -1,15 +1,9 @@
 # %%
 # preprocess for ANN, save the preprocessed data to cleaned_dataset
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
 import os
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer, SnowballStemmer
-import re
 # %%
 # get current working directory
-path = f'{os.path.dirname(os.path.dirname(os.path.abspath(__file__)))}/dataset/set2/'
 # read requirements from set2
 requirements_df = pd.read_csv('../../crowdre_question/requirements.csv')[
     ['id', 'user_id', 'application_domain','application_domain_other', 'tags']].sort_values(by=['id'])
