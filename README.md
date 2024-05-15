@@ -1,11 +1,10 @@
 # Data Science Project - MSc Statistics Coursework (2023-2024)
 
-## Table of Contents
+# Table of Contents
 1. [Project Overview](#project-overview)
 2. [Dataset Overview](#dataset-overview)
 3. [Installation](#installation)
 4. [Usage](#usage)
-    - [Data Collection](#data-collection)
     - [Data Cleaning](#data-cleaning)
     - [Data Analysis](#data-analysis)
     - [Modeling](#modeling)
@@ -17,11 +16,35 @@
 9. [References](#references)
 
 
-## Project Overview
+# Project Overview
+This project utilizes the dataset titled "Crowdsourced Smarthome Requirements with Creativity Ratings," which was analyzed in the paper ["Crowdsourcing Requirements: Does Teamwork Enhance Crowd Creativity?"](https://dl.acm.org/doi/pdf/10.1145/3501247.3531555).
 
-## Dataset Overview
-This project utilizes the dataset titled "Crowdsourced Smarthome Requirements with Creativity Ratings." The dataset was analyzed in the paper "Crowdsourcing Requirements: Does Teamwork Enhance Crowd Creativity?"
+The dataset can be accessed from two sources:
 
+- [Zenodo](https://zenodo.org/records/3550721): Provides the dataset with some processed data.
+- [Crowdre](https://crowdre.github.io/murukannaiah-smarthome-requirements-dataset/): Offers a more original version, including the questions used.
+
+In this project, I work more on the [Zenodo](https://zenodo.org/records/3550721) dataset tp process the analysis. The [Crowdre](https://crowdre.github.io/murukannaiah-smarthome-requirements-dataset/) is only used for training NLP model (this more original version provides Smarthome Requirements with tags and application domains)   
+
+## Following approach has been implemented
+### Hypothesis Testing
+
+I conducted hypothesis testing to analyze whether teamwork enhances crowd creativity. Additionally, I investigated the influence of emotion on:
+
+- Creativity (weighted average of creativity and usefulness)
+- Efficiency
+
+### Natural Language Processing (NLP)
+
+I applied NLP techniques to:
+
+1. **Predict Tags**: Analyzed the tags in the dataset to predict tags in the `all_requirements.csv` file. (data from requirements.csv is used for training(more original version))
+2. **Predict Application Domain**: Analyzed and predicted the application domain to enrich the dataset's information.
+
+These approaches provide deeper insights and enhance the dataset's usability for future research and applications.
+
+
+# Dataset Overview
 The dataset consists of the following CSV files:
 
 1. **presurvey-questions**: A list of presurvey questions used to collect demographic information.
@@ -34,7 +57,7 @@ The dataset consists of the following CSV files:
 8. **all_requirements**: Requirements elicited by the crowd workers in a user story format.
 9. **creativity-ratings.csv**: Authors’ average ratings for each requirement based on the metrics ‘detailedness,’ ‘novelty,’ and ‘usefulness.’
 
-## Installation
+# Installation
 
 To get started with this project, follow the steps below:
 
@@ -56,12 +79,26 @@ To get started with this project, follow the steps below:
 4. **download the dataset**
 The dataset can be accessed and downloaded from the following website: [Zenodo](https://zenodo.org/records/3550721).
 
- 5. Run the project:
-You may use ...... to directly find out the final results of the NLP and Hypothesis testing. The commend to adjust this project are also given below.
+# Usage
+## Data Cleaning
+
+To clean the dataset, run the corresponding Python script located in `.data-science-project/src/data_cleaning`. Detailed usage instructions are provided in the comments within each script. For example, to clean the dataset using the `clean_EP_eff.py` script, use the following command:
+
+```bash
+python clean_EP_eff.py
+```
+
+This command extracts the following columns: `user_id`, `Efficiency`, `Enjoyment`, `Boredom`, `Confidence `, `Anxiety`, `Personality`, and `group_type` from `users.csv` and `postsurvey-responses.csv`. It then constructs a new CSV file with the cleaned data. The generated CSV file will be located in `data-science-project/cleaned_dataset/`.
+
+## Data Analysis
+
+## Modeling
+
+## Results
 
 
 
-## License
+# License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
