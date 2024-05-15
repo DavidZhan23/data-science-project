@@ -18,10 +18,15 @@
 
 
 ## Project Overview
+This project utilizes the dataset titled "Crowdsourced Smarthome Requirements with Creativity Ratings." The dataset was analyzed in the paper "Crowdsourcing Requirements: Does Teamwork Enhance Crowd Creativity?"
+This dataset can be found in two website with different information contained, [Zenodo](https://zenodo.org/records/3550721) gives the dataset with some operated data. And [this site](https://crowdre.github.io/murukannaiah-smarthome-requirements-dataset/) provides a more original version with questions given.
+
+I have further investigated on the dataset. As this dataset 
+
+
+
 
 ## Dataset Overview
-This project utilizes the dataset titled "Crowdsourced Smarthome Requirements with Creativity Ratings." The dataset was analyzed in the paper "Crowdsourcing Requirements: Does Teamwork Enhance Crowd Creativity?"
-
 The dataset consists of the following CSV files:
 
 1. **presurvey-questions**: A list of presurvey questions used to collect demographic information.
