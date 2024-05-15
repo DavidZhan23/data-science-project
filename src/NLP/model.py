@@ -1,3 +1,5 @@
+# The models are defined here. You are also encouraged to adjust any model in your own interest. 
+# I have implemented the method print_evaluation_scores() to review the performance of the model
 import numpy as np
 import os
 import matplotlib.pyplot as plt
@@ -10,6 +12,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import LinearSVC
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score, f1_score, multilabel_confusion_matrix
+
 
 def print_evaluation_scores(y_val, predicted):
     accuracy = accuracy_score(y_val, predicted)

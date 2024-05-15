@@ -8,19 +8,19 @@ from model import build_and_evaluate_model, save_confusion_matrices, build_other
 from utils import download_nltk_data
 
 def main():
-    # 下载nltk数据
+    # download nltk
     download_nltk_data()
 
-    # 加载数据
+    # load my data
     req = load_data('../../crowdre_question/requirements.csv')
 
-    # 清理标签
+    # clean tags
     req, tag_dic = clean_tags(req)
 
-    # 过滤标签
+    # filter tages
     req, tag_dic = filter_tags(req, tag_dic)
 
-    # 拆分数据集
+    # split the tags 
     train, test = split_data(req, tag_dic)
 
     X_train, y_train = train.sentence, train.tags
@@ -29,28 +29,31 @@ def main():
     X_train = [text_prepare(x) for x in X_train]
     X_test = [text_prepare(x) for x in X_test]
 
-    # 转换标签
+    # transform the tags
     mlb = MultiLabelBinarizer(classes=sorted(tag_dic.keys()))
     y_train = mlb.fit_transform(y_train)
     y_test = mlb.transform(y_test)
 
-    # 构建和评估模型
+    # construct and evaluate the model here
     model, predicted = build_and_evaluate_model(X_train, y_train, X_test, y_test)
 
-    # 保存混淆矩阵
+    # construct and save my confusion matrix here
     classes = ['alarm','alert','automat','child','clean','control','cook','door',
                'electr', 'energi', 'entertain', 'food', 'health' ,'heat' ,'home' ,'kitchen',
                'light', 'lock', 'music', 'pet', 'safeti', 'save', 'secur','sensor', 'shower',
                'smart', 'temperatur', 'tv' ,'water', 'window']
     save_confusion_matrices(y_test, predicted, classes)
 
-    # 训练和评估其他模型
+    # evaluate other models
+    # To make my terminel looks neater, I commented this part
+    # But you are free to try any model and evaluate based on your onw preference.
+    # You can go to build_other_models() method in model.py, there are comments guide you to do this
     build_other_models(X_train, y_train, X_test, y_test)
 
-    # 训练和评估TFIDF模型
+    # train a tfidf_model
     build_tfidf_models(X_train, y_train, X_test, y_test)
 
-    # 预测并保存结果
+    # save theresult 
     scenarios = pd.read_csv('../../cleaned_dataset/senario.csv')
     sc = pd.DataFrame(scenarios, columns=['id', 'context', 'stimuli', 'response'])
     sc['sentence'] = sc['context'] + ', ' + sc['stimuli'] + ', ' + sc['response']
